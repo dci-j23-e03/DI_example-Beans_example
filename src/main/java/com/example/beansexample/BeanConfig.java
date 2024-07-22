@@ -20,12 +20,11 @@ public class BeanConfig {
     return configuredPrinter;
   }
 
-  @Bean(name = "configuredPrinter2")
-  @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
+  @Bean(name = "configuredPrinter2", initMethod = "onInit", destroyMethod = "onDestroy")
+  @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
   public DummyPrinter configuredPrinter2() {
     DummyPrinter configuredPrinter = new DummyPrinter();
     configuredPrinter.setMessage("Hello everybody from configured bean number 2!");
     return configuredPrinter;
   }
-
 }

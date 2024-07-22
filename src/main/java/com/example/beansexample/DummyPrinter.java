@@ -1,5 +1,8 @@
 package com.example.beansexample;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 public class DummyPrinter {
   private String message = "Hello everybody!";
 
@@ -13,5 +16,13 @@ public class DummyPrinter {
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+  public void onInit() {
+    System.out.println("DummyPrinter bean created!");
+  }
+
+  public void onDestroy() {
+    System.out.println("DummyPrinter bean is going to be destroyed");
   }
 }
